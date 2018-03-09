@@ -1,4 +1,6 @@
 /*eslint-disable no-process-exit*/
+
+/*define the constants,  and import library*/
 const got = require('got');
 const money = require('money');
 const chalk = require('chalk');
@@ -7,6 +9,11 @@ const currencies = require('../lib/currencies.json');
 
 const API = 'https://api.fixer.io/latest';
 
+
+/*
+* Search in currencies.json and get the informations on all currencies.
+*Then calcul and convert from a money to another
+*/
 const convert = configuration => {
   const {amount, to, from, response, loading} = configuration;
 
@@ -33,6 +40,11 @@ const convert = configuration => {
   );
   process.exit(1);
 };
+
+
+/**
+ * Load a currencies with asynchrone command
+ */
 
 const cash = async command => {
   const amount = command.amount;
